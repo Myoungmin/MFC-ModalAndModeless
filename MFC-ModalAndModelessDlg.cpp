@@ -6,6 +6,7 @@
 #include "framework.h"
 #include "MFC-ModalAndModeless.h"
 #include "MFC-ModalAndModelessDlg.h"
+#include "ModalDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -65,6 +66,7 @@ BEGIN_MESSAGE_MAP(CMFCModalAndModelessDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_MODAL_BUTTON, &CMFCModalAndModelessDlg::OnBnClickedModalButton)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +155,10 @@ HCURSOR CMFCModalAndModelessDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFCModalAndModelessDlg::OnBnClickedModalButton()
+{
+	CModalDlg modalDlg;
+	modalDlg.DoModal();
+}
