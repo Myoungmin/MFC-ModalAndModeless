@@ -32,3 +32,16 @@ END_MESSAGE_MAP()
 
 
 // CModalDlg message handlers
+
+
+BOOL CModalDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	CTabCtrl* tabCtrl = (CTabCtrl*)GetDlgItem(IDC_TAB1);
+
+	tabCtrl->InsertItem(0, _T("Tab A"));
+	tabCtrl->InsertItem(1, _T("Tab B"));
+
+	return TRUE;
+}
