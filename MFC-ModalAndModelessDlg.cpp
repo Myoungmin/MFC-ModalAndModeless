@@ -67,6 +67,7 @@ BEGIN_MESSAGE_MAP(CMFCModalAndModelessDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_MODAL_BUTTON, &CMFCModalAndModelessDlg::OnBnClickedModalButton)
+	ON_BN_CLICKED(IDC_MODELESS_BUTTON, &CMFCModalAndModelessDlg::OnBnClickedModelessButton)
 END_MESSAGE_MAP()
 
 
@@ -161,4 +162,12 @@ void CMFCModalAndModelessDlg::OnBnClickedModalButton()
 {
 	CModalDlg modalDlg;
 	modalDlg.DoModal();
+}
+
+
+void CMFCModalAndModelessDlg::OnBnClickedModelessButton()
+{
+	m_ModelessDlg = new CModelessDlg;
+	m_ModelessDlg->Create(IDD_MODELESS_DIALOG);
+	m_ModelessDlg->ShowWindow(SW_SHOW);
 }

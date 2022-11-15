@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "ModelessDlg.h"
 
 // CMFCModalAndModelessDlg dialog
 class CMFCModalAndModelessDlg : public CDialogEx
@@ -33,4 +34,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedModalButton();
+	afx_msg void OnBnClickedModelessButton();
+
+private:
+	CModelessDlg* m_ModelessDlg;
 };

@@ -8,7 +8,6 @@
 #define IDD_MFCMODALANDMODELESS_DIALOG  102
 #define IDR_MAINFRAME                   128
 #define IDD_MODAL_DIALOG                130
-#define IDD_DIALOG1                     132
 #define IDD_MODELESS_DIALOG             132
 #define IDC_MODAL_BUTTON                1000
 #define IDC_BUTTON2                     1001
