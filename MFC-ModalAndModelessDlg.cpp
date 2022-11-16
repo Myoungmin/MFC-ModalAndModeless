@@ -21,12 +21,12 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// Dialog Data
+	// Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 // Implementation
@@ -167,7 +167,10 @@ void CMFCModalAndModelessDlg::OnBnClickedModalButton()
 
 void CMFCModalAndModelessDlg::OnBnClickedModelessButton()
 {
-	m_ModelessDlg = new CModelessDlg;
-	m_ModelessDlg->Create(IDD_MODELESS_DIALOG);
+	if (m_ModelessDlg->GetSafeHwnd() == NULL)
+	{
+		m_ModelessDlg = new CModelessDlg;
+		m_ModelessDlg->Create(IDD_MODELESS_DIALOG);
+	}
 	m_ModelessDlg->ShowWindow(SW_SHOW);
 }
