@@ -28,6 +28,7 @@ protected:
 
 	// Generated message map functions
 	virtual BOOL OnInitDialog();
+	virtual BOOL DestroyWindow();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
@@ -38,4 +39,5 @@ public:
 
 private:
 	CModelessDlg* m_ModelessDlg;
+public:
 };

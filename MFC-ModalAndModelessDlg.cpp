@@ -52,7 +52,7 @@ END_MESSAGE_MAP()
 
 
 CMFCModalAndModelessDlg::CMFCModalAndModelessDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_MFCMODALANDMODELESS_DIALOG, pParent)
+	: CDialogEx(IDD_MFCMODALANDMODELESS_DIALOG, pParent), m_ModelessDlg(nullptr)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -173,4 +173,20 @@ void CMFCModalAndModelessDlg::OnBnClickedModelessButton()
 		m_ModelessDlg->Create(IDD_MODELESS_DIALOG);
 	}
 	m_ModelessDlg->ShowWindow(SW_SHOW);
+}
+
+
+BOOL CMFCModalAndModelessDlg::DestroyWindow()
+{
+	if (m_ModelessDlg->GetSafeHwnd() != NULL)
+	{
+		m_ModelessDlg->DestroyWindow();
+	}
+
+	if (m_ModelessDlg != nullptr)
+	{
+		delete m_ModelessDlg;
+	}
+
+	return CDialogEx::DestroyWindow();
 }
